@@ -28,8 +28,8 @@ class UpdateNotebookRecordRequest extends FormRequest
             'name' => 'required|string|max:255',
             'surname' => 'required|string|max:255',
             'patronymic' => 'required|string|max:255',
-            'phone_number' => 'required|string|max:255|unique:notebook_records,phone_number,104',
-            'email' => 'required|email|string|max:255|unique:notebook_records,email,104',
+            'phone_number' => 'required|string|max:255|unique:notebook_records,phone_number,' . request('id'),
+            'email' => 'required|email|string|max:255|unique:notebook_records,email,' . request('id'),
             'birthday' => '',
             'company' => '',
             'image' => ''

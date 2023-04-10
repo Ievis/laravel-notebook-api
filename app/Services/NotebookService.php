@@ -8,8 +8,10 @@ class NotebookService
 {
     public static function storeRecord(array $data)
     {
+        $image = FileService::save(request()->file);
         $data = array_merge($data, [
-            'user_id' => TokenService::getUserByToken()->id
+            'user_id' => TokenService::getUserByToken()->id,
+            'image' => $image
         ]);
 
         return NotebookRecord::create($data);
@@ -17,6 +19,10 @@ class NotebookService
 
     public static function updateRecord(NotebookRecord $record, array $data)
     {
+        $image = FileService::save(request()->file);
+        $data = array_merge($data, [
+            'image' => $image
+        ]);
         $record->update($data);
 
         return $record;
