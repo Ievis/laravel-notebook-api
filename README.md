@@ -14,18 +14,19 @@
 1. GET    localhost:8000/api/v1/notebook (с фильтрацией по email'у)
 2. POST   localhost:8000/api/v1/notebook
 3. GET    localhost:8000/api/v1/notebook/{id}
-4. DELETE localhost:8000/api/v1/notebook/{id}
+4. POST   localhost:8000/api/v1/notebook/{id}
+5. DELETE localhost:8000/api/v1/notebook/{id}
 ```
 
 ### Структура JsonResponse:
 
 ```json
 {
-    "success": true/false,
+    "success": "true/false",
     "error-code": "0/4xx",
     "message": "..."
     "data": {
-        ...
+        "..."
     }
 }
 ```
